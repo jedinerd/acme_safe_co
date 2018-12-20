@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-#./drop.sh mh-public-web E2XYD1MYJYLSW5 mh.alumni-services-001.com mh@enterprisealumni.com
 # param 1: bucket name
 # param 2: cloudfront distribution ID
 # param 3: domain(s)
