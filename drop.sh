@@ -9,7 +9,10 @@ mkdir -p $HOME/letsencrypt/etc
 docker run -it --name safeco \
 -e AWS_ACCESS_KEY_ID \
 -e AWS_SECRET_ACCESS_KEY \
+-e AWS_BUCKET_NAME=$1 \
+-e AWS_CLOUDFRONT_ID=$2 \
+-e CERT_DOMAIN=$3 \
+-e CERT_EMAIL="$4" \
 -v $HOME/repos/acme_safe_co/etc:/etc/letsencrypt \
--v $HOME/repos/acme_safe_co/lib:/var/lib/letsencrypt mhoggea/acme_safe_co:latest \
-$1 $2 $3 $4
+-v $HOME/repos/acme_safe_co/lib:/var/lib/letsencrypt mhoggea/acme_safe_co:latest
 docker rm safeco

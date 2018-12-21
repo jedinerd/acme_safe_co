@@ -4,8 +4,8 @@
 #param 3: domain
 #param 4: email
 certbot --agree-tos -n -a certbot-s3front:auth \
---certbot-s3front:auth-s3-bucket $1 \
+--certbot-s3front:auth-s3-bucket $AWS_BUCKET_NAME \
 -i certbot-s3front:installer \
---certbot-s3front:installer-cf-distribution-id $2 \
--d $3 \
--m $4
+--certbot-s3front:installer-cf-distribution-id $AWS_CLOUDFRONT_ID \
+-d $CERT_DOMAIN \
+-m $CERT_EMAIL
