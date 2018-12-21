@@ -15,3 +15,4 @@ You must have a cloudfront destination deployed with an s3 origin. It must be re
 
 AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY must be set in the environment, or available through any of the other mechanisms supported by boto3.
 
+Thanks to [dlapiduz](https://github.com/dlapiduz/certbot-s3front "dlapiduz") for writing the original certbot module I fixed up for this. Much later I discovered that he too had fixed his module, but has never updated PyPy / pip leaving the masses to suffer.
