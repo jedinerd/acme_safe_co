@@ -7,7 +7,7 @@ for dropping a safe on cloudfront
 
     ./drop.sh bucketname cloudfrontid domain emailaddress
 
-This will provision a lets encrypt certificate for domain , validate the certificate using an s3 bucket, and apply the verified certificate to a cloudfront destination.
+This will provision a lets encrypt certificate for domain , validate the certificate using an http-01 challenge / s3 bucket, and apply the verified certificate to a cloudfront destination.
 
 ## Requirements:
 
