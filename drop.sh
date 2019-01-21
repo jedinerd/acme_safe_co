@@ -5,7 +5,6 @@
 # param 4: email address
 mkdir -p $HOME/letsencrypt/lib
 mkdir -p $HOME/letsencrypt/etc
-#docker build . -t acmesafeco
 docker run -it --name safeco \
 -e AWS_ACCESS_KEY_ID \
 -e AWS_SECRET_ACCESS_KEY \
