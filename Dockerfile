@@ -1,10 +1,22 @@
-FROM certbot/certbot:latest
+FROM python:3.6-alpine
+ENTRYPOINT ["/opt/certbot/certbotw"]
 
-RUN apk update \
-    && apk add --virtual git \
-    && apk add bash
-RUN pip install git+https://github.com/jedinerd/certbot-s3front.git#egg=certbot-s3front
+WORKDIR /opt/certbot
 
-COPY ./entrypoint.sh /
+RUN apk add --no-cache --virtual .certbot-deps \
+    libffi \
+    libssl1.1 \
+    ca-certificates \
+    binutils \
+    bash
 
-ENTRYPOINT ["/entrypoint.sh"]
+RUN apk add --no-cache --virtual .build-deps \
+    gcc \
+    linux-headers \
+    openssl-dev \
+    musl-dev \
+    libffi-dev \
+    && pip install certbot-s3front \
+    && apk del .build-deps
+
+COPY ./certbotw /opt/certbot/

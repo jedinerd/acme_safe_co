@@ -1,2 +1,0 @@
-certbot >= 0.9.3
-certbot-s3front

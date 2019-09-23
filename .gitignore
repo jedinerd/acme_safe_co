@@ -1,2 +1,6 @@
 etc/
 lib/
+
+# Vim
+*.swo
+*.swp

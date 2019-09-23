@@ -3,16 +3,11 @@ for dropping a safe on cloudfront
 
 ![Picture of cartoon safe](/safe.png?raw=true)
 
-## Usage:
+This is a wrapper around certbot. Two main differences from default certbot is:
+1. It contains retry mechanism to handle scenario when someone trying to run certbot in same time when 'renew' task running
+2. It contains `certbot-s3front` plugin to integrate certbot with our [Alumni Maintenance Stack](https://github.com/EnterpriseJungle/alumni-maintenance)
 
-    ./drop.sh bucketname cloudfrontid domain emailaddress
+## Usage
+Acmesafeco not designed for standalone run, but run as ECS Scheduled Task
 
-This will provision a lets encrypt certificate for domain , validate the certificate using an http-01 challenge / s3 bucket, and apply the verified certificate to a cloudfront destination.
-
-## Requirements:
-
-You must have a cloudfront destination deployed with an s3 origin. It must be reachable on your domain using ssl ( this can be the cloudfront default certificate )
-
-AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY must be set in the environment, or available through any of the other mechanisms supported by boto3.
-
-Thanks to [dlapiduz](https://github.com/dlapiduz/certbot-s3front "dlapiduz") for writing the original certbot module I fixed up for this. Much later I discovered that he too had fixed his module, but has never updated PyPy / pip leaving the masses to suffer.
+More info you can find [here](https://entjungle.atlassian.net/wiki/spaces/AL/pages/854196708/Alumni+Letsencrypt+Certificates+Management)
